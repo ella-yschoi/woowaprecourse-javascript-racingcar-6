@@ -1,5 +1,5 @@
 import Car from '../model/Car.js';
-import { getUserInputCarName, getUserInputTryCount } from '../view/inputView.js'
+import InputView from '../view/InputView.js'
 import { printResult, printCar, printWinner } from '../view/outputView.js';
 import { isValidCarName, isValidTryCount } from '../common/validator.js';
 import { GAME } from '../common/constants.js';
@@ -37,7 +37,7 @@ class GameController {
   }
 
   async handleTryCount() {
-    const tryCount = await getUserInputTryCount();
+    const tryCount = await InputView.getUserInputTryCount();
     if (!isValidTryCount(tryCount)) {
       return this.handleTryCount();
     }
@@ -45,7 +45,7 @@ class GameController {
   }
 
   async setCars() {
-    const names = await getUserInputCarName();
+    const names = await InputView.getUserInputCarName();
     if (!isValidCarName(names)) {
       await this.setCars();
       return;
