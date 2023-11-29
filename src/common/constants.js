@@ -21,9 +21,10 @@ const LOG = Object.freeze({
 });
 
 const ERROR = Object.freeze({
-  empty_input: '[ERROR] 입력된 값이 없어요.',
-  invalid_car_name: `[ERROR] 자동차 이름은 중복 없이 각 ${GAME.min_length}자 이상 ~ ${GAME.max_length}자 이하로 입력해 주세요.`,
-  invalid_try_count: `[ERROR] ${GAME.min_try_count} 이상의 숫자를 입력해 주세요.`,
+  prefix: '[ERROR] ',
+  empty_input: '입력된 값이 없어요.',
+  invalid_car_name: `자동차 이름은 중복 없이 각 ${GAME.min_length}자 이상 ~ ${GAME.max_length}자 이하로 입력해 주세요.`,
+  invalid_try_count: `${GAME.min_try_count} 이상의 숫자를 입력해 주세요.`,
 });
 
 export { GAME, REGEX, LOG, ERROR }
