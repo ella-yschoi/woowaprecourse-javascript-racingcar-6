@@ -3,8 +3,8 @@ import GameController from '../../src/controller/GameController.js';
 import Car from '../../src/model/Car.js';
 
 jest.mock('../../src/view/inputView.js', () => ({
-  getUserInputCarName: jest.fn(() => 'Tesla,KIA,현대'),
-  getUserInputTryCount: jest.fn(() => '5'),
+  getCarName: jest.fn(() => 'Tesla,KIA,현대'),
+  getTryCount: jest.fn(() => '5'),
 }));
 
 describe('게임 컨트롤러 테스트', () => {

@@ -13,20 +13,18 @@ class GameController {
 
   moveCarsAndPrintResults() {
     this.cars.forEach((car) => {
-      if (
-        generateRandomNumber(GAME.min_random_number, GAME.max_random_number) >=
-        GAME.move_forward_requirement
-      ) {
+      const randomValue = generateRandomNumber(GAME.min_random, GAME.max_random);
+      if (randomValue >= GAME.move_forward_requirement) {
         car.moveForward();
+        OutputView.printCar(car.getName(), car.getPosition());
       }
-      OutputView.printCar(car.getName(), car.getPosition());
     });
     printMessage(GAME.blank_space);
   }
 
   raceCar(tryCount) {
     OutputView.printResult();
-    for (let i = 0; i < tryCount; i += 1) {
+    for (let round = 0; round < tryCount; round += 1) {
       this.moveCarsAndPrintResults();
     }
   }
