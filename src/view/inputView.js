@@ -3,8 +3,8 @@ import { throwError } from '../common/utils.js'
 import { isValidCarName, isValidTryCount } from '../common/validator.js';
 import { LOG_MESSAGE, ERROR_MESSAGE } from '../common/constants.js';
 
-export const getUserInputCarName = async () => {
-  const input = await Console.readLineAsync(LOG_MESSAGE.INPUT_CAR_NAME); 
+const getUserInputCarName = async () => {
+  const input = await Console.readLineAsync(LOG_MESSAGE.INPUT_CAR_NAME);
   if (!input) {
     throwError(ERROR_MESSAGE.EMPTY_INPUT);
   }
@@ -14,7 +14,7 @@ export const getUserInputCarName = async () => {
   return input;
 }
 
-export const getUserInputTryCount = async () => {
+const getUserInputTryCount = async () => {
   const input = await Console.readLineAsync(LOG_MESSAGE.INPUT_TRY_COUNT);
   if (!input) {
     throwError(ERROR_MESSAGE.EMPTY_INPUT);
@@ -24,3 +24,5 @@ export const getUserInputTryCount = async () => {
   }
   return input;
 }
+
+export { getUserInputCarName, getUserInputTryCount }

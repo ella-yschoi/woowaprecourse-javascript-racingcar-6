@@ -6,7 +6,7 @@ const isUniqueCarName = (input) => {
   return names.length === new Set(names).size;
 };
 
-export const isValidCarName = (input) => {
+const isValidCarName = (input) => {
   const carNames = input.split(',').map(name => name.trim().toUpperCase());
   return (
     carNames.length >= GAME_SETTING.MIN_LENGTH_CAR_NAME &&
@@ -19,6 +19,8 @@ export const isValidCarName = (input) => {
 // 시도 횟수 유효성 검사
 const isNumericTryCount = (input) => /^[1-9]\d*$/.test(input);
 
-export const isValidTryCount = (input) => (
+const isValidTryCount = (input) => (
   input.toString().length >= GAME_SETTING.MIN_TRY_COUNT && isNumericTryCount(input)
 );
+
+export { isUniqueCarName, isValidCarName, isNumericTryCount, isValidTryCount }
