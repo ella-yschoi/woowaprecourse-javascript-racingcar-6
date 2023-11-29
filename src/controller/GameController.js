@@ -1,6 +1,6 @@
 import Car from '../model/Car.js';
 import InputView from '../view/InputView.js'
-import { printResult, printCar, printWinner } from '../view/outputView.js';
+import OutputView from '../view/OutputView.js';
 import { isValidCarName, isValidTryCount } from '../common/validator.js';
 import { GAME } from '../common/constants.js';
 import { printMessage, generateRandomNumber } from '../common/utils.js';
@@ -16,13 +16,13 @@ class GameController {
       if (generateRandomNumber(GAME.min_random_number, GAME.max_random_number) >= GAME.move_forward_requirement) {
         car.moveForward();
       }
-      printCar(car.getName(), car.getPosition());
+      OutputView.printCar(car.getName(), car.getPosition());
     });
     printMessage(GAME.blank_space);
   }  
 
   raceCar(tryCount) {
-    printResult();
+    OutputView.printResult();
     for (let i = 0; i < tryCount; i += 1) {
       this.moveCarsAndPrintResults();
     }
@@ -60,7 +60,7 @@ class GameController {
     this.raceCar(tryCount);
     
     const winner = this.getWinner();
-    printWinner(winner);
+    OutputView.printWinner(winner);
   }
 }
 
