@@ -1,20 +1,20 @@
 import { printMessage } from '../common/utils.js';
-import { GAME_SETTING, LOG_MESSAGE, ERROR_MESSAGE } from '../common/constants.js';
+import { GAME, LOG, ERROR } from '../common/constants.js';
 
 const printResult = () => {
-  printMessage(LOG_MESSAGE.OUTPUT_RESULT);
+  printMessage(LOG.output_result);
 }
 
 const printCar = (name, position) => {
-  printMessage(`${name} : ${GAME_SETTING.MOVE_FORWARD_POSITION.repeat(position)}`);
+  printMessage(`${name} : ${GAME.move_forward_position.repeat(position)}`);
 }
 
 const printWinner = (winner) => {
-  printMessage(`${LOG_MESSAGE.OUTPUT_WINNER}${winner.join(', ')}`);
+  printMessage(`${LOG.output_winner}${winner.join(', ')}`);
 }
 
 const printError = () => {
-  printMessage(ERROR_MESSAGE);
+  printMessage(ERROR);
 }
 
 export { printResult, printCar, printWinner, printError }

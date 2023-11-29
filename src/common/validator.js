@@ -1,4 +1,4 @@
-import { GAME_SETTING } from './constants.js';
+import { GAME } from './constants.js';
 
 // 자동차 이름 유효성 검사
 const isUniqueCarName = (input) => {
@@ -9,8 +9,8 @@ const isUniqueCarName = (input) => {
 const isValidCarName = (input) => {
   const carNames = input.split(',').map(name => name.trim().toUpperCase());
   return (
-    carNames.length >= GAME_SETTING.MIN_LENGTH_CAR_NAME &&
-    carNames.every(name => name.length <= GAME_SETTING.MAX_LENGTH_CAR_NAME) &&
+    carNames.length >= GAME.min_length_car_name &&
+    carNames.every(name => name.length <= GAME.max_length_car_name) &&
     !carNames.includes('') &&
     isUniqueCarName(carNames.join(','))
   );
@@ -20,7 +20,7 @@ const isValidCarName = (input) => {
 const isNumericTryCount = (input) => /^[1-9]\d*$/.test(input);
 
 const isValidTryCount = (input) => (
-  input.toString().length >= GAME_SETTING.MIN_TRY_COUNT && isNumericTryCount(input)
+  input.toString().length >= GAME.min_try_count && isNumericTryCount(input)
 );
 
 export { isUniqueCarName, isValidCarName, isNumericTryCount, isValidTryCount }

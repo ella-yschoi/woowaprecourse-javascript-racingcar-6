@@ -1,26 +1,26 @@
 import { Console } from '@woowacourse/mission-utils';
 import { throwError } from '../common/utils.js'
 import { isValidCarName, isValidTryCount } from '../common/validator.js';
-import { LOG_MESSAGE, ERROR_MESSAGE } from '../common/constants.js';
+import { LOG, ERROR } from '../common/constants.js';
 
 const getUserInputCarName = async () => {
-  const input = await Console.readLineAsync(LOG_MESSAGE.INPUT_CAR_NAME);
+  const input = await Console.readLineAsync(LOG.input_car_name);
   if (!input) {
-    throwError(ERROR_MESSAGE.EMPTY_INPUT);
+    throwError(ERROR.empty_input);
   }
   if (!isValidCarName(input)) {
-    throwError(ERROR_MESSAGE.INVALID_CAR_NAME);
+    throwError(ERROR.invalid_car_name);
   }
   return input;
 }
 
 const getUserInputTryCount = async () => {
-  const input = await Console.readLineAsync(LOG_MESSAGE.INPUT_TRY_COUNT);
+  const input = await Console.readLineAsync(LOG.input_try_count);
   if (!input) {
-    throwError(ERROR_MESSAGE.EMPTY_INPUT);
+    throwError(ERROR.empty_input);
   }
   if (!isValidTryCount(input)) {
-    throwError(ERROR_MESSAGE.INVALID_TRY_COUNT);
+    throwError(ERROR.invalid_try_count);
   }
   return input;
 }

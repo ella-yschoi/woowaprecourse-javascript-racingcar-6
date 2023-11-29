@@ -2,7 +2,7 @@ import Car from '../model/Car.js';
 import { getUserInputCarName, getUserInputTryCount } from '../view/inputView.js'
 import { printResult, printCar, printWinner } from '../view/outputView.js';
 import { isValidCarName, isValidTryCount } from '../common/validator.js';
-import { GAME_SETTING } from '../common/constants.js';
+import { GAME } from '../common/constants.js';
 import { printMessage, generateRandomNumber } from '../common/utils.js';
 
 class GameController {
@@ -13,12 +13,12 @@ class GameController {
 
   moveCarsAndPrintResults() {
     this.cars.forEach((car) => {
-      if (generateRandomNumber(GAME_SETTING.MIN_RANDOM_NUMBER, GAME_SETTING.MAX_RANDOM_NUMBER) >= GAME_SETTING.MOVE_FORWARD_REQUIREMENT) {
+      if (generateRandomNumber(GAME.min_random_number, GAME.max_random_number) >= GAME.move_forward_requirement) {
         car.moveForward();
       }
       printCar(car.getName(), car.getPosition());
     });
-    printMessage(GAME_SETTING.BLANK_SPACE);
+    printMessage(GAME.blank_space);
   }  
 
   raceCar(tryCount) {
