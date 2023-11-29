@@ -1,4 +1,4 @@
-import { GAME } from './constants.js';
+import { GAME, REGEX } from './constants.js';
 
 // 자동차 이름 유효성 검사
 const isUniqueCarName = (input) => {
@@ -9,15 +9,15 @@ const isUniqueCarName = (input) => {
 const isValidCarName = (input) => {
   const carNames = input.split(',').map(name => name.trim().toUpperCase());
   return (
-    carNames.length >= GAME.min_length &&
-    carNames.every(name => name.length <= GAME.max_length) &&
-    !carNames.includes('') &&
-    isUniqueCarName(carNames.join(','))
+    carNames.length >= GAME.min_length
+    && carNames.every(name => name.length <= GAME.max_length)
+    && !carNames.includes('')
+    && isUniqueCarName(carNames.join(','))
   );
 };
 
 // 시도 횟수 유효성 검사
-const isNumericTryCount = (input) => /^[1-9]\d*$/.test(input);
+const isNumericTryCount = (input) => REGEX.positive_integer.test(input);
 
 const isValidTryCount = (input) => (
   input.toString().length >= GAME.min_try_count && isNumericTryCount(input)

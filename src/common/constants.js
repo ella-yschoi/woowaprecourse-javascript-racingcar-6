@@ -4,9 +4,13 @@ const GAME = Object.freeze({
   min_try_count: 1,
   min_random: 0,
   max_random: 9,
-  move_forward_requirement: 4,
-  move_forward_position: '-',
+  move_requirement: 4,
+  move_position: '-',
   blank_space: '',
+});
+
+const REGEX = Object.freeze({
+  positive_integer: /^[1-9]+$/,
 });
 
 const LOG = Object.freeze({
@@ -22,4 +26,4 @@ const ERROR = Object.freeze({
   invalid_try_count: `[ERROR] ${GAME.min_try_count} 이상의 숫자를 입력해 주세요.`,
 });
 
-export { GAME, LOG, ERROR }
+export { GAME, REGEX, LOG, ERROR }

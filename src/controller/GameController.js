@@ -14,7 +14,7 @@ class GameController {
   moveCarsAndPrintResults() {
     this.cars.forEach((car) => {
       const randomValue = generateRandomNumber(GAME.min_random, GAME.max_random);
-      if (randomValue >= GAME.move_forward_requirement) {
+      if (randomValue >= GAME.move_requirement) {
         car.moveForward();
         OutputView.printCar(car.getName(), car.getPosition());
       }

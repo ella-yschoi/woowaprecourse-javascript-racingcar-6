@@ -7,7 +7,7 @@ class OutputView {
   }
   
   static printCar = (name, position) => {
-    printMessage(`${name} : ${GAME.move_forward_position.repeat(position)}`);
+    printMessage(`${name} : ${GAME.move_position.repeat(position)}`);
   }
 
   static printWinner = (winner) => {
