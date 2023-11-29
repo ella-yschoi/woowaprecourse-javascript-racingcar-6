@@ -1,5 +1,5 @@
 import { printMessage } from '../common/utils.js';
-import { GAME, LOG, ERROR } from '../common/constants.js';
+import { GAME, LOG } from '../common/constants.js';
 
 class OutputView {
   static printResult = () => {

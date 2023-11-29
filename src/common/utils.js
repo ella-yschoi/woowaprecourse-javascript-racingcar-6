@@ -1,5 +1,5 @@
 import { Console, Random } from '@woowacourse/mission-utils';
-import { ERROR } from './constants';
+import { ERROR } from './constants.js';
 
 const printMessage = (message) => Console.print(message);
 
