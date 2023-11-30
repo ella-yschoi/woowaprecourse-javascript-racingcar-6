@@ -1,5 +1,6 @@
-import { ERROR } from '../common/constants';
+import { ERROR } from '../common/constants.js';
 import { throwError } from '../common/utils.js';
+import { isValidTryCount } from '../common/validator.js';
 
 class TryCount {
 
@@ -32,6 +33,6 @@ class TryCount {
     }
     return tryCount;
   }
-}
+};
 
 export default TryCount;
