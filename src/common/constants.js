@@ -1,4 +1,5 @@
 const GAME = Object.freeze({
+  zero: 0,
   min_length: 1,
   max_length: 5,
   min_try_count: 1,

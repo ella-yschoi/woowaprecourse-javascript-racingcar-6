@@ -5,7 +5,7 @@ const isValidCarName = (input) => {
   const carNames = input.split(',').map(name => name.trim().toUpperCase());
   return (
     isSeperatedByComma(input)
-    && carNames.length >= GAME.min_length
+    && carNames.length > GAME.zero
     && carNames.every(name => name.length <= GAME.max_length)
     && !carNames.includes('')
     && isUniqueValue(carNames.join(','))
