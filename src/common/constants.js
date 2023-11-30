@@ -12,7 +12,7 @@ const GAME = Object.freeze({
 
 const REGEX = Object.freeze({
   allowed_count: /^[1-9]\d*$/,
-  allowed_name: /^[a-zA-Z가-힣0-9, ]+$/,
+  allowed_name: /^[a-zA-Z가-힣0-9,]+$/,
 });
 
 const LOG = Object.freeze({
