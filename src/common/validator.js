@@ -12,9 +12,9 @@ const isValidCarName = (input) => {
   );
 };
 
-const isValidTryCount = (input) => (
+const isValidTryCount = (input) => {
   input.toString().length >= GAME.min_try_count
   && isNumeric(input)
-);
+};
 
 export { isValidCarName, isValidTryCount }
