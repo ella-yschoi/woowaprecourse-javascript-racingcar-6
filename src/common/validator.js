@@ -13,7 +13,7 @@ const isValidCarName = (input) => {
 };
 
 const isValidTryCount = (input) => {
-  input.toString().length >= GAME.min_try_count
+  return input.toString().length >= GAME.min_try_count
   && isNumeric(input)
 };
 
