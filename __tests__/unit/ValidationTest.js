@@ -5,7 +5,7 @@ describe('자동차 이름 유효성 검사', () => {
   const validCarNames = ['Tesla,Volvo', '테슬라,메르세데스'];
   const duplicatedCarNames = ['BMW,BMW', '현대,현대'];
   const invalidLengthNames = ['Mercedes,Toyota,Lamborghini', '메르세데스벤츠,에디슨모터스'];
-  const invalidSeperatedNames = ['Ford,', '포드-테슬라'];
+  const invalidSeperatedNames = ['Ford,', '포드-테슬라', 'BMW, 현대'];
 
   test('유효한 이름이면 성공', () => {
     validCarNames.forEach((carNames) => {
