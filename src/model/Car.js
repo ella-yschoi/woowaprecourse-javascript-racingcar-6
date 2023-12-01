@@ -1,4 +1,4 @@
-import { ERROR } from '../common/constants';
+import { ERROR } from '../common/constants.js';
 import { isSeperatedByComma, isUniqueValue, throwError } from '../common/utils.js';
 
 class Car {

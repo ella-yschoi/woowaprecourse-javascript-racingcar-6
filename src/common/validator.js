@@ -1,5 +1,5 @@
 import { GAME } from './constants.js';
-import { isNumeric, isSeperatedByComma, isUniqueValue } from './utils';
+import { isNumeric, isSeperatedByComma, isUniqueValue } from './utils.js';
 
 const isValidCarName = (input) => {
   const carNames = input.split(',').map(name => name.trim().toUpperCase());
