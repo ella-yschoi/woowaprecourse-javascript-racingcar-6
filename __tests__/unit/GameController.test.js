@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import GameController from '../../src/controller/GameController.js';
 import Car from '../../src/model/Car.js';
 

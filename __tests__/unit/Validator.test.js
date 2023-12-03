@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import { isValidCarName, isValidTryCount } from '../../src/common/validator.js';
 
 describe('자동차 이름 유효성 검사', () => {
