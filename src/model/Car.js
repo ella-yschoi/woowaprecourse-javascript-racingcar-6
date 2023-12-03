@@ -26,18 +26,6 @@ class Car {
   }
 
   #validate(name) {
-    this.#validateIsEmpty(name);
-    this.#validateCarName(name);
-  }
-
-  #validateIsEmpty(name) {
-    if (!name) {
-      throwError(ERROR.empty_input);
-    }
-    return name;
-  }
-
-  #validateCarName(name) {
     if (!isValidCarName(name)) {
       throwError(ERROR.invalid_car_name);
     }
