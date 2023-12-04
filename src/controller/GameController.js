@@ -1,29 +1,30 @@
 import Car from '../model/Car.js';
-import { getUserInputCarName, getUserInputTryCount } from '../view/inputView.js'
-import { printResult, printCar, printWinner } from '../view/outputView.js';
-import { isValidCarName, isValidTryCount } from '../common/validator.js';
-import { GAME_SETTING } from '../common/constants.js';
+import TryCount from '../model/TryCount.js';
+import InputView from '../view/InputView.js';
+import OutputView from '../view/OutputView.js';
+import { GAME } from '../common/constants.js';
 import { printMessage, generateRandomNumber } from '../common/utils.js';
 
 class GameController {
-
   constructor() {
     this.cars = [];
+    this.tryCount = 0;
   }
 
   moveCarsAndPrintResults() {
     this.cars.forEach((car) => {
-      if (generateRandomNumber(GAME_SETTING.MIN_RANDOM_NUMBER, GAME_SETTING.MAX_RANDOM_NUMBER) >= GAME_SETTING.MOVE_FORWARD_REQUIREMENT) {
+      const randomValue = generateRandomNumber(GAME.min_random, GAME.max_random);
+      if (randomValue >= GAME.move_requirement) {
         car.moveForward();
+        OutputView.printCar(car.getName(), car.getPosition());
       }
-      printCar(car.getName(), car.getPosition());
     });
-    printMessage(GAME_SETTING.BLANK_SPACE);
-  }  
+    printMessage(GAME.blank_space);
+  }
 
   raceCar(tryCount) {
-    printResult();
-    for (let i = 0; i < tryCount; i += 1) {
+    OutputView.printResult();
+    for (let round = 0; round < tryCount; round += 1) {
       this.moveCarsAndPrintResults();
     }
   }
@@ -37,20 +38,14 @@ class GameController {
   }
 
   async handleTryCount() {
-    const tryCount = await getUserInputTryCount();
-    if (!isValidTryCount(tryCount)) {
-      return this.handleTryCount();
-    }
-    return tryCount;
+    const tryCountInput = await InputView.getTryCount();
+    this.tryCount = new TryCount(tryCountInput);
+    return this.tryCount.getTryCount();
   }
 
   async setCars() {
-    const names = await getUserInputCarName();
-    if (!isValidCarName(names)) {
-      await this.setCars();
-      return;
-    }
-    this.cars = names.split(',').map((name) => new Car(name));
+    const nameInput = await InputView.getCarName();
+    this.cars = nameInput.split(',').map((name) => new Car(name));
   }
 
   async play() {
@@ -58,9 +53,9 @@ class GameController {
 
     const tryCount = await this.handleTryCount();
     this.raceCar(tryCount);
-    
+
     const winner = this.getWinner();
-    printWinner(winner);
+    OutputView.printWinner(winner);
   }
 }
 

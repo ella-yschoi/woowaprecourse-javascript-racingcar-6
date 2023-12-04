@@ -1,24 +1,24 @@
-import { GAME_SETTING } from './constants.js';
+import { GAME } from './constants.js';
+import { isNumeric, isSeperatedByComma, isUniqueValue } from './utils.js';
 
-// 자동차 이름 유효성 검사
-const isUniqueCarName = (input) => {
-  const names = input.split(',').map(name => name.trim());
-  return names.length === new Set(names).size;
-};
+const isValidCarName = (input) => {
+  if (!input) {
+    return false;
+  }
 
-export const isValidCarName = (input) => {
+  if (!isSeperatedByComma(input)) {
+    return false;
+  }
+
   const carNames = input.split(',').map(name => name.trim().toUpperCase());
   return (
-    carNames.length >= GAME_SETTING.MIN_LENGTH_CAR_NAME &&
-    carNames.every(name => name.length <= GAME_SETTING.MAX_LENGTH_CAR_NAME) &&
-    !carNames.includes('') &&
-    isUniqueCarName(carNames.join(','))
-  );
-};
+    carNames.every(name => name.length <= GAME.max_length && name)
+    && isUniqueValue(carNames.join(','))
+  )
+}
 
-// 시도 횟수 유효성 검사
-const isNumericTryCount = (input) => /^[1-9]\d*$/.test(input);
+const isValidTryCount = (input) => {
+  return isNumeric(input) && input >= GAME.min_try_count;
+}
 
-export const isValidTryCount = (input) => (
-  input.toString().length >= GAME_SETTING.MIN_TRY_COUNT && isNumericTryCount(input)
-);
+export { isValidCarName, isValidTryCount }
